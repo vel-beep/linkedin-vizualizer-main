@@ -14,10 +14,8 @@ function ProfileCard() {
       />
       {/* Avatar */}
       <div className="-mt-7 flex justify-center mb-1">
-        <div className="w-[72px] h-[72px] rounded-full bg-gray-300 border-2 border-white flex items-center justify-center text-gray-500">
-          <svg viewBox="0 0 24 24" className="w-9 h-9" fill="currentColor">
-            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-          </svg>
+        <div className="w-[72px] h-[72px] rounded-full border-2 border-white overflow-hidden">
+          <img src="/images/photo_jaime.jpeg" alt="Jaime Rodríguez de Santiago" className="w-full h-full object-cover" />
         </div>
       </div>
       <div className="px-3 pb-3">

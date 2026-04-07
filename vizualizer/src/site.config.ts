@@ -4,23 +4,23 @@
 
 export const siteConfig = {
   // Brand
-  name: 'My Company',
+  name: 'Kaizen',
   title: 'Content Vizualizer',
-  description: 'Internal LinkedIn post review tool',
-  loginTitle: 'Draft Review',
+  description: 'Previsualizador interno de posts de LinkedIn',
+  loginTitle: 'Kaizen Drafts',
 
   // Profile card (left sidebar on home page)
   profile: {
-    name: 'Content Reviewer',
-    subtitle: 'Reviewing Drafts',
-    recentTopics: ['LinkedIn', 'Content', 'Marketing'],
+    name: 'Jaime Rodríguez de Santiago',
+    subtitle: 'Kaizen Podcast',
+    recentTopics: ['LinkedIn', 'Contenido', 'Kaizen'],
   },
 
   // Tracker page
   tracker: {
     title: 'LinkedIn Tracker',
-    timezone: 'Your timezone',
-    updateCadence: 'Updated every Sunday',
+    timezone: 'Europe/Madrid',
+    updateCadence: 'Actualizado cada domingo',
   },
 
   // ── Personas ──────────────────────────────────────────────
@@ -31,35 +31,15 @@ export const siteConfig = {
   // badge options: 'linkedin' (gold), 'verified' (blue), or undefined (none)
   // isCompanyPage: true for company pages (square avatar, no badge)
   personas: {
-    alice: {
-      name: 'Alice Johnson',
-      role: 'CEO at MyCompany',
-      shortRole: 'CEO',
-      color: '#dc2626',
-      photo: '/images/photo_alice.jpeg',
+    jaime: {
+      name: 'Jaime Rodríguez de Santiago',
+      role: 'Country Manager Spain & Portugal at Airbnb · Creator of Kaizen',
+      shortRole: 'Kaizen',
+      color: '#f97316',
+      photo: '/images/photo_jaime.jpeg',
       badge: 'linkedin' as const,
-      trackerKey: 'Alice',
+      trackerKey: 'Jaime',
     },
-    bob: {
-      name: 'Bob Smith',
-      role: 'CTO at MyCompany',
-      shortRole: 'CTO',
-      color: '#0a66c2',
-      photo: '/images/photo_bob.jpeg',
-      badge: 'verified' as const,
-      trackerKey: 'Bob',
-    },
-    // ── Example: company page ──
-    // mycompany: {
-    //   name: 'MyCompany',
-    //   role: '1,000 followers',
-    //   shortRole: 'Company',
-    //   color: '#0a66c2',
-    //   photo: '/images/photo_mycompany.jpeg',
-    //   badge: undefined,
-    //   trackerKey: 'MyCompany',
-    //   isCompanyPage: true as const,
-    // },
   },
 
   // ── Weekly Tracker Data ───────────────────────────────────
@@ -70,16 +50,14 @@ export const siteConfig = {
     {
       week: '2026-04-07',
       personas: {
-        Alice: { impressions: 5000, followers: 500 },
-        Bob:   { impressions: 3000, followers: 300 },
+        Jaime: { impressions: 0, followers: 0 },
       },
     },
     // ↓ Copy the block above, change the date, update numbers ↓
     // {
     //   week: '2026-04-14',
     //   personas: {
-    //     Alice: { impressions: 0, followers: 0 },
-    //     Bob:   { impressions: 0, followers: 0 },
+    //     Jaime: { impressions: 0, followers: 0 },
     //   },
     // },
   ],

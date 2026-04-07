@@ -32,7 +32,7 @@ const CONTENT_DIR  = path.join(process.cwd(), 'content')
 // Local dev: reads from ../[Persona]/  |  Vercel: reads from content/[Persona]/
 const PERSONAS_DIR_LOCAL  = path.join(process.cwd(), '..')
 const PERSONAS_DIR_VERCEL = path.join(process.cwd(), 'content')
-const PERSONAS_DIR = fs.existsSync(path.join(PERSONAS_DIR_LOCAL, 'Ruben')) ? PERSONAS_DIR_LOCAL : PERSONAS_DIR_VERCEL
+const PERSONAS_DIR = fs.existsSync(path.join(PERSONAS_DIR_LOCAL, 'Jaime')) ? PERSONAS_DIR_LOCAL : PERSONAS_DIR_VERCEL
 
 // ── Simple frontmatter format (legacy content/ files) ─────────
 function parseSimpleFile(filepath: string): Post | null {
@@ -82,7 +82,7 @@ function parseDraftFile(filepath: string, personKey: string): Post | null {
     if (!match) return null
 
     const fullPost = match[1].trim()
-    if (fullPost.length < 50) return null
+    if (fullPost.length < 5) return null
 
     // Split into paragraphs; first = hook, rest = content
     const paragraphs    = fullPost.split(/\n\n/)
@@ -98,8 +98,6 @@ function parseDraftFile(filepath: string, personKey: string): Post | null {
       .join('\n\n')
       .trim()
 
-    if (!content) return null
-
     // Date: prefer last_updated in frontmatter, fall back to file mtime
     let date: string | Date
     const fmMatch   = raw.match(/^---\n([\s\S]*?)\n---/)
@@ -107,6 +105,13 @@ function parseDraftFile(filepath: string, personKey: string): Post | null {
     date = dateMatch ? dateMatch[1] : fs.statSync(filepath).mtime
 
     const filename = path.basename(filepath, '.md')
+
+    // Allow video-only posts with no copy
+    const VIDEO_EXTS_CHECK = ['.mp4', '.webm', '.mov']
+    const dirCheck = path.dirname(filepath)
+    const hasVideo = VIDEO_EXTS_CHECK.some(ext => fs.existsSync(path.join(dirCheck, filename + ext)))
+
+    if (!content && !hasVideo) return null
 
     // Auto-detect matching images & video in the same directory.
     // Supports multiple images: base name + numbered variants (e.g. post_ruben.png, post_ruben_2.png).
