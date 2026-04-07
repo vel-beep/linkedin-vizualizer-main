@@ -50,7 +50,7 @@ export const siteConfig = {
     {
       week: '2026-04-07',
       personas: {
-        Jaime: { impressions: 0, followers: 0 },
+        Jaime: { impressions: 110000, followers: 24831 },
       },
     },
     // ↓ Copy the block above, change the date, update numbers ↓
